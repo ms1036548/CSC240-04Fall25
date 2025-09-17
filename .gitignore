@@ -12,6 +12,8 @@
 
 # Package Files #
 *.jar
+# allow required jars in lib/
+!lib/*.jar
 *.war
 *.nar
 *.ear
@@ -19,6 +21,24 @@
 *.tar.gz
 *.rar
 
+# ignore SQLite DB files (but keep the folder name if you want)
+data/
+*.db
+*.db-shm
+*.db-wal
+
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# --- IDE / project files ---
+# Keep VS Code settings.json, ignore other workspace files
+.vscode/**
+!.vscode/settings.json
+# IntelliJ/Eclipse (safe to ignore)
+.idea/
+*.iml
+.classpath
+.project
+.settings/
