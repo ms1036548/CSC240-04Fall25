@@ -1,5 +1,4 @@
-
-// src/CountriesVerifier.java
+// Loads country records from REST Countries API into SQLite
 import java.nio.file.*;
 import java.sql.*;
 import java.util.regex.*;
