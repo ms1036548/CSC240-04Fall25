@@ -1,5 +1,4 @@
-
-// src/CountriesLoader.java
+// Loads country records from REST Countries API into SQLite
 import java.net.http.*;
 import java.net.URI;
 import java.nio.file.*;
