@@ -1,3 +1,5 @@
+// Reads country names from the countries table, calls the Universities API
+// for each country, inserts results into the universities table, and writes a summary.
 import java.net.http.*;
 import java.net.URI;
 import java.net.URLEncoder;
