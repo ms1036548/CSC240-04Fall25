@@ -21,7 +21,7 @@
 *.tar.gz
 *.rar
 
-# ignore SQLite DB files (but keep the folder name if you want)
+# ignore SQLite DB files 
 data/
 *.db
 *.db-shm
