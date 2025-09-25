@@ -1,4 +1,4 @@
-// Loads country records from REST Countries API into SQLite
+// Verifies that the number of rows in the countries table matches
 import java.nio.file.*;
 import java.sql.*;
 import java.util.regex.*;
