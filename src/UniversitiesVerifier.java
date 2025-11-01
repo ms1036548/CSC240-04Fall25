@@ -1,3 +1,4 @@
+// Verifies that the number of rows in the universities table matches
 import java.nio.file.*;
 import java.sql.*;
 import java.util.*;
@@ -18,6 +19,7 @@ public class UniversitiesVerifier {
         }
     }
 
+    // Same parser as the countries verifier
     private static int readExpectedCount(Path p) throws Exception {
         List<String> lines = Files.readAllLines(p);
         for (String line : lines) {
@@ -26,7 +28,8 @@ public class UniversitiesVerifier {
         }
         throw new RuntimeException("records= line not found in summary");
     }
-
+        
+    // Executes SELECT COUNT(*) FROM universities
     private static int getTableCount() throws Exception {
         try (Connection conn = DriverManager.getConnection(DB_URL);
                 Statement st = conn.createStatement();

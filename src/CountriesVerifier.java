@@ -1,5 +1,4 @@
-
-// src/CountriesVerifier.java
+// Verifies that the number of rows in the countries table matches
 import java.nio.file.*;
 import java.sql.*;
 import java.util.regex.*;
@@ -11,11 +10,13 @@ public class CountriesVerifier {
     public static void main(String[] args) throws Exception {
         System.out.println("Reading summary from: " + SUMMARY_FILE.toAbsolutePath());
         if (!Files.exists(SUMMARY_FILE)) {
-            throw new RuntimeException("countries_summary.txt not found – run CountriesLoader first");
+            throw new RuntimeException("countries_summary.txt not found – run CountriesLoader first");  // Fail early if the file doesn't exist
         }
+        //Read out of summary text and count out of the rows in db table
         int expected = readExpectedCount(SUMMARY_FILE);
         int actual = getTableCount();
-
+        
+        //comparing and printing result
         if (expected == actual) {
             System.out.println("OK , summary records (" + expected + ") match table count");
         } else {
@@ -38,7 +39,7 @@ public class CountriesVerifier {
             return last;
         throw new RuntimeException("records= line not found in summary");
     }
-
+        //Executes SELECT COUNT(*) FROM countries
     private static int getTableCount() throws Exception {
         try (Connection conn = DriverManager.getConnection(DB_URL);
                 Statement st = conn.createStatement();

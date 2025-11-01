@@ -1,3 +1,5 @@
+// Reads country names from the countries table, calls the Universities API
+// for each country, inserts results into the universities table, and writes a summary.
 import java.net.http.*;
 import java.net.URI;
 import java.net.URLEncoder;
@@ -38,7 +40,7 @@ public class UniversitiesLoader {
             }
             if (countries.isEmpty())
                 throw new RuntimeException("Load countries first (run CountriesLoader).");
-
+            // 3) Call API , parse JSON and insert rows for each country
             HttpClient client = HttpClient.newHttpClient();
             String sql = "INSERT INTO universities(name, country, alpha_two_code, domain, web_page) VALUES (?,?,?,?,?)";
             int total = 0;
@@ -55,7 +57,8 @@ public class UniversitiesLoader {
                     HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandlers.ofString());
                     if (resp.statusCode() != 200)
                         continue;
-
+                    
+                    //Parse the array for said country
                     JSONArray arr = new JSONArray(resp.body());
                     for (int i = 0; i < arr.length(); i++) {
                         JSONObject o = arr.getJSONObject(i);
@@ -83,8 +86,9 @@ public class UniversitiesLoader {
                     }
                     ps.executeBatch();
                 }
-                conn.commit();
+                conn.commit();  //Commit the rows 
 
+                //Summary file
                 String timestamp = ZonedDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
                 String summary = "timestamp=" + timestamp + "\nrecords=" + total + "\n";
                 Files.writeString(SUMMARY_FILE, summary);

@@ -1,5 +1,4 @@
-
-// src/CountriesLoader.java
+// Loads country records from REST Countries API into SQLite
 import java.net.http.*;
 import java.net.URI;
 import java.nio.file.*;
@@ -11,7 +10,7 @@ import org.json.*;
 public class CountriesLoader {
     private static final String DB_URL = "jdbc:sqlite:data/app.db";
     private static final String COUNTRIES_URL = "https://restcountries.com/v3.1/all?fields=name,cca2,region,capital,population";
-    private static final Path SUMMARY_FILE = Paths.get("summaries/countries_summary.txt");
+    private static final Path SUMMARY_FILE = Paths.get("summaries/countries_summary.txt");   //Stored summary produced by the loader
 
     public static void main(String[] args) throws Exception {
         Files.createDirectories(SUMMARY_FILE.getParent());
@@ -33,6 +32,7 @@ public class CountriesLoader {
             try (Statement st = conn.createStatement()) {
                 st.executeUpdate("DELETE FROM countries");
             }
+            //Parameterized INSERT statement
             String sql = "INSERT INTO countries(name, code2, region, capital, population) VALUES (?,?,?,?,?)";
             int count = 0;
             try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -60,6 +60,7 @@ public class CountriesLoader {
                     ps.addBatch();
                     count++;
                 }
+                // Execute the batch of inserts and commit transaction
                 ps.executeBatch();
                 conn.commit();
 
