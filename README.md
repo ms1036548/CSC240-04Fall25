@@ -99,13 +99,13 @@ Invoke-RestMethod -Method Put -Uri "http://localhost:9180/apisix/admin/routes/3"
 
 ```
 Should show something like: 
-<img width="1250" height="325" alt="Working maybenow" src="https://github.com/user-attachments/assets/8fe64b1f-509b-4ccd-b296-92f38714bc64" />
+<img width="1250" height="325" alt="Working " src="https://github.com/user-attachments/assets/8fe64b1f-509b-4ccd-b296-92f38714bc64" />
 
 Server Run Commands after routing shows up 
 
-Example: curl http://localhost:9080/data/countries
-Example: curl http://localhost:9080/api/health
-Example: curl http://localhost:9080/ui/dashboard
+Example Commands:  "curl http://localhost:9080/data/countries"
+Example Commands:  "curl http://localhost:9080/api/health"
+Example Commands:  "curl http://localhost:9080/ui/dashboard"
 
 
 <img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/f2322c61-c8d0-4beb-8df8-41567a47b081" />
