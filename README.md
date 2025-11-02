@@ -102,3 +102,5 @@ Invoke-RestMethod -Method Put -Uri "http://localhost:9180/apisix/admin/routes/3"
 Example: curl http://localhost:9080/data/countries
 Example: curl http://localhost:9080/api/health
 Example: curl http://localhost:9080/ui/dashboard
+
+For us it works and shows: <img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/790b27d0-f460-400b-939c-67975ed99a54" />
