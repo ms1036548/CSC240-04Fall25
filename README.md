@@ -97,10 +97,16 @@ $bodyUI = @"
 "@
 Invoke-RestMethod -Method Put -Uri "http://localhost:9180/apisix/admin/routes/3" -Headers $headers -Body $bodyUI
 
-###After server is up run commands 
+```
+Should show something like: 
+<img width="1250" height="325" alt="Working maybenow" src="https://github.com/user-attachments/assets/8fe64b1f-509b-4ccd-b296-92f38714bc64" />
+
+Server Run Commands after routing shows up 
 
 Example: curl http://localhost:9080/data/countries
 Example: curl http://localhost:9080/api/health
 Example: curl http://localhost:9080/ui/dashboard
 
-For us it works and shows: <img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/790b27d0-f460-400b-939c-67975ed99a54" />
+
+<img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/f2322c61-c8d0-4beb-8df8-41567a47b081" />
+
