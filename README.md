@@ -23,13 +23,19 @@ docker compose up -d
 ## Setup & Run Instructions
 Run the Three API Servers (in separate terminals)
 
-Data API
+Data API:
+
+javac -cp "lib/*" src/dataapi/DataApiServer.java -d out
 java -cp "out;lib/*" dataapi.DataApiServer
 
-Class API
+Class API:
+
+javac -cp "lib/*" src/classapi/ClassApiServer.java -d out
 java -cp "out;lib/*" classapi.ClassApiServer
 
-UI API
+UI API:
+
+javac -cp "lib/*" src/uiapi/UiApiServer.java -d out
 java -cp "out;lib/*" uiapi.UiApiServer
 
 ### Powershell scripts to create routes
