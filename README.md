@@ -110,3 +110,8 @@ Example Commands:  "curl http://localhost:9080/ui/dashboard"
 
 <img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/f2322c61-c8d0-4beb-8df8-41567a47b081" />
 
+
+**Working through APISIX**
+<img width="1523" height="937" alt="APISIXrunning" src="https://github.com/user-attachments/assets/43440f63-35d7-47c9-ba16-6c710ad928ad" />
+
+
