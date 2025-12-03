@@ -23,13 +23,25 @@ docker compose up -d
 ## Setup & Run Instructions
 Run the Three API Servers (in separate terminals)
 
-Data API
+Data API:
+
+javac -cp "lib/*" src/dataapi/DataApiServer.java -d out
+then in seperate terminal:
+
 java -cp "out;lib/*" dataapi.DataApiServer
 
-Class API
+Class API:
+
+javac -cp "lib/*" src/classapi/ClassApiServer.java -d out
+then in seperate terminal:
+
 java -cp "out;lib/*" classapi.ClassApiServer
 
-UI API
+UI API:
+
+javac -cp "lib/*" src/uiapi/UiApiServer.java -d out
+then in seperate terminal:
+
 java -cp "out;lib/*" uiapi.UiApiServer
 
 ### Powershell scripts to create routes
@@ -85,8 +97,21 @@ $bodyUI = @"
 "@
 Invoke-RestMethod -Method Put -Uri "http://localhost:9180/apisix/admin/routes/3" -Headers $headers -Body $bodyUI
 
-###After server is up run commands 
+```
+Should show something like: 
+<img width="1250" height="325" alt="Working " src="https://github.com/user-attachments/assets/8fe64b1f-509b-4ccd-b296-92f38714bc64" />
 
-Example: curl http://localhost:9080/data/countries
-Example: curl http://localhost:9080/api/health
-Example: curl http://localhost:9080/ui/dashboard
+Server Run Commands after routing shows up 
+
+Example Commands:  "curl http://localhost:9080/data/countries"
+Example Commands:  "curl http://localhost:9080/api/health"
+Example Commands:  "curl http://localhost:9080/ui/dashboard"
+
+
+<img width="1596" height="934" alt="Working ClassAPI route" src="https://github.com/user-attachments/assets/f2322c61-c8d0-4beb-8df8-41567a47b081" />
+
+
+**Working through APISIX**
+<img width="1523" height="937" alt="APISIXrunning" src="https://github.com/user-attachments/assets/43440f63-35d7-47c9-ba16-6c710ad928ad" />
+
+
